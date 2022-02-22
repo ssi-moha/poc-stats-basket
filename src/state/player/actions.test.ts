@@ -1,4 +1,4 @@
-import { addTwoPoints, addThreePoints } from "./actions"
+import { addTwoPoints, addThreePoints, addPass } from "./actions"
 import { PlayerActionTypes } from "./types"
 
 describe("Player - Actions", () => {
@@ -14,5 +14,12 @@ describe("Player - Actions", () => {
             type: PlayerActionTypes.THREE_POINTS
         }
         expect(addThreePoints()).toEqual(expectedAction)
+    })
+
+    it("should create an action who add a pass", () => {
+        const expectedAction = {
+            type: PlayerActionTypes.PASS
+        }
+        expect(addPass()).toEqual(expectedAction)
     })
 })

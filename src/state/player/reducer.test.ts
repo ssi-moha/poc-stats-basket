@@ -24,4 +24,10 @@ describe("Player - Reducer", () => {
       playerReducer(expectedPlayer, { type: PlayerActionTypes.THREE_POINTS })
     ).toEqual({ ...expectedPlayer, points: expectedPlayer.points + 3 });
   });
+
+  it("should return add three points to a player", () => {
+    expect(
+      playerReducer(expectedPlayer, { type: PlayerActionTypes.PASS })
+    ).toEqual({ ...expectedPlayer, passes: expectedPlayer.passes + 1 });
+  });
 });

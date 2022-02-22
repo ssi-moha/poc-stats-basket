@@ -1,5 +1,5 @@
 import { useAppSelector } from "./app/hooks";
-import PlayerItem from "./ui/components/PlayerItem";
+import PlayerItem from "./ui/components/PlayerItem/PlayerItem";
 import { ChangePlayerInteractor } from "./useCases/ChangePlayerInteractor";
 
 function App({
@@ -15,6 +15,7 @@ function App({
         {...player}
         addTwoPoints={changePlayerCounterInteractor.addTwoPoints}
         addThreePoints={changePlayerCounterInteractor.addThreePoints}
+        addPass={changePlayerCounterInteractor.addPass}
       />
     </div>
   );

@@ -3,6 +3,7 @@ import { PlayerGateway } from "./PlayerGateway";
 export interface ChangePlayerInteractor {
   addTwoPoints(): void;
   addThreePoints(): void;
+  addPass(): void;
 }
 
 export function createChangePlayerInteractor(
@@ -16,5 +17,9 @@ export function createChangePlayerInteractor(
     addThreePoints() {
       playerGateway.addThreePoints();
     },
+
+    addPass() {
+      playerGateway.addPass();
+    }
   };
 }

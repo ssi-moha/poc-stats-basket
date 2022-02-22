@@ -1,4 +1,5 @@
 import {
+  addPass,
   addThreePoints,
   addTwoPoints,
   createPlayer,
@@ -20,6 +21,8 @@ export function playerReducer(
       return addTwoPoints(state);
     case PlayerActionTypes.THREE_POINTS:
       return addThreePoints(state);
+    case PlayerActionTypes.PASS:
+      return addPass(state);
     default:
       return state;
   }

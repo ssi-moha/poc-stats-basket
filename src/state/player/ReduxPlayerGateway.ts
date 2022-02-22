@@ -1,6 +1,6 @@
 import { AppDispatch } from "../../app/store";
 import { PlayerGateway } from "../../useCases/PlayerGateway";
-import { addThreePoints, addTwoPoints } from "./actions";
+import { addPass, addThreePoints, addTwoPoints } from "./actions";
 
 export function createReduxPlayerGateway(dispatch: AppDispatch): PlayerGateway {
   return {
@@ -10,6 +10,10 @@ export function createReduxPlayerGateway(dispatch: AppDispatch): PlayerGateway {
 
     addThreePoints() {
       dispatch(addThreePoints());
+    },
+
+    addPass() {
+      dispatch(addPass());
     },
   };
 }

@@ -36,3 +36,7 @@ export function addTwoPoints(player: Player): Player {
 export function addThreePoints(player: Player): Player {
   return { ...player, points: player.points + 3 };
 }
+
+export function addPass(player: Player): Player {
+  return { ...player, passes: player.passes + 1 };
+}

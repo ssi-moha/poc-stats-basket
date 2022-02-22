@@ -1,4 +1,4 @@
-import { addThreePoints, addTwoPoints, createPlayer, Player } from "./Player";
+import { addPass, addThreePoints, addTwoPoints, createPlayer, Player } from "./Player";
 
 describe("Player", () => {
   const expectedPlayer: Player = {
@@ -26,6 +26,13 @@ describe("Player", () => {
     expect(addThreePoints(expectedPlayer)).toEqual({
       ...expectedPlayer,
       points: expectedPlayer.points + 3,
+    });
+  });
+
+  it("should add a pass to a player", () => {
+    expect(addPass(expectedPlayer)).toEqual({
+      ...expectedPlayer,
+      passes: expectedPlayer.passes + 1,
     });
   });
 });
