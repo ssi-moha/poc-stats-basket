@@ -5,11 +5,16 @@ import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
+import { createReduxPlayerGateway } from './state/player/ReduxPlayerGateway';
+import { createChangePlayerInteractor } from './useCases/ChangePlayerInteractor';
+
+const playerGateway = createReduxPlayerGateway(store.dispatch);
+const changePlayerCounterInteractor = createChangePlayerInteractor(playerGateway);
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <App changePlayerCounterInteractor={changePlayerCounterInteractor} />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
