@@ -1,4 +1,4 @@
-import { PlayerGateway } from "./PlayerGateway";
+import type { PlayerGateway } from "./PlayerGateway";
 
 export interface ChangePlayerInteractor {
   addTwoPoints(): void;

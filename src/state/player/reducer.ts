@@ -1,10 +1,11 @@
 import {
+  addFoul,
   addPass,
   addThreePoints,
   addTwoPoints,
   createPlayer,
-  Player,
 } from "../../entities/Player/Player";
+import type { Player } from "../../entities/Player/Player";
 import { PlayerActions } from "./actions";
 import { PlayerActionTypes } from "./types";
 
@@ -23,6 +24,8 @@ export function playerReducer(
       return addThreePoints(state);
     case PlayerActionTypes.PASS:
       return addPass(state);
+    case PlayerActionTypes.FOUL:
+      return addFoul(state);
     default:
       return state;
   }

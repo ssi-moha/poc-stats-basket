@@ -12,7 +12,11 @@ type PassAction = {
   type: PlayerActionTypes.PASS;
 };
 
-export type PlayerActions = TwoPointsAction | ThreePointsAction | PassAction;
+type FoulAction = {
+  type: PlayerActionTypes.FOUL;
+};
+
+export type PlayerActions = TwoPointsAction | ThreePointsAction | PassAction | FoulAction;
 
 export function addTwoPoints(): TwoPointsAction {
     return {
@@ -29,5 +33,11 @@ export function addThreePoints(): ThreePointsAction {
 export function addPass(): PassAction {
   return {
       type: PlayerActionTypes.PASS
+  }
+}
+
+export function addFoul(): FoulAction {
+  return {
+      type: PlayerActionTypes.FOUL
   }
 }

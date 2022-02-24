@@ -1,4 +1,11 @@
-import { addPass, addThreePoints, addTwoPoints, createPlayer, Player } from "./Player";
+import {
+  addFoul,
+  addPass,
+  addThreePoints,
+  addTwoPoints,
+  createPlayer,
+} from "./Player";
+import type { Player } from "./Player";
 
 describe("Player", () => {
   const expectedPlayer: Player = {
@@ -33,6 +40,13 @@ describe("Player", () => {
     expect(addPass(expectedPlayer)).toEqual({
       ...expectedPlayer,
       passes: expectedPlayer.passes + 1,
+    });
+  });
+
+  it("should add a foul to a player", () => {
+    expect(addFoul(expectedPlayer)).toEqual({
+      ...expectedPlayer,
+      fouls: expectedPlayer.fouls + 1,
     });
   });
 });

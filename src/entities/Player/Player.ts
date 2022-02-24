@@ -40,3 +40,7 @@ export function addThreePoints(player: Player): Player {
 export function addPass(player: Player): Player {
   return { ...player, passes: player.passes + 1 };
 }
+
+export function addFoul(player: Player): Player {
+  return { ...player, fouls: player.fouls + 1 };
+}
