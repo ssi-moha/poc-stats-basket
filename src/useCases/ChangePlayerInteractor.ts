@@ -4,6 +4,7 @@ export interface ChangePlayerInteractor {
   addTwoPoints(): void;
   addThreePoints(): void;
   addPass(): void;
+  addFoul(): void;
 }
 
 export function createChangePlayerInteractor(
@@ -13,13 +14,17 @@ export function createChangePlayerInteractor(
     addTwoPoints() {
       playerGateway.addTwoPoints();
     },
-    
+
     addThreePoints() {
       playerGateway.addThreePoints();
     },
 
     addPass() {
       playerGateway.addPass();
-    }
+    },
+
+    addFoul() {
+      playerGateway.addFoul();
+    },
   };
 }

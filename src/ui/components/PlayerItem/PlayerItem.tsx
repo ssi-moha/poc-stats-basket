@@ -5,9 +5,11 @@ const PlayerItem = ({
   name,
   points,
   passes,
+  fouls,
   addTwoPoints,
   addThreePoints,
-  addPass
+  addPass,
+  addFoul,
 }: PlayerItemProps) => {
   return (
     <PlayerItemContainer>
@@ -16,6 +18,8 @@ const PlayerItem = ({
       <div>{points}</div>
 
       <div>{passes}</div>
+      
+      <div>{fouls}</div>
 
       <div>
         <button onClick={addTwoPoints}>2 points</button>
@@ -27,6 +31,10 @@ const PlayerItem = ({
 
       <div>
         <button onClick={addPass}>Pass</button>
+      </div>
+
+      <div>
+        <button onClick={addFoul}>Fouls</button>
       </div>
     </PlayerItemContainer>
   );

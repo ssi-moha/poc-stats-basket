@@ -16,6 +16,7 @@ function App({
         addTwoPoints={changePlayerCounterInteractor.addTwoPoints}
         addThreePoints={changePlayerCounterInteractor.addThreePoints}
         addPass={changePlayerCounterInteractor.addPass}
+        addFoul={changePlayerCounterInteractor.addFoul}
       />
     </div>
   );
