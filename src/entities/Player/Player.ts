@@ -44,3 +44,11 @@ export function addPass(player: Player): Player {
 export function addFoul(player: Player): Player {
   return { ...player, fouls: player.fouls + 1 };
 }
+
+export function addOffensiveRebound(player: Player): Player {
+  return { ...player, offensiveRebounds: player.offensiveRebounds + 1 };
+}
+
+export function addDefensiveRebound(player: Player): Player {
+  return { ...player, defensiveRebounds: player.defensiveRebounds + 1 };
+}

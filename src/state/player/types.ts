@@ -3,4 +3,6 @@ export enum PlayerActionTypes {
     THREE_POINTS = "THREE_POINTS",
     PASS = "PASS",
     FOUL = "FOUL",
+    OFFENSIVE_REBOUND = "OFFENSIVE_REBOUND",
+    DEFENSIVE_REBOUND = "DEFENSIVE_REBOUND",
 }

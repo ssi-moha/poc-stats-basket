@@ -1,5 +1,7 @@
 import {
+  addDefensiveRebound,
   addFoul,
+  addOffensiveRebound,
   addPass,
   addThreePoints,
   addTwoPoints,
@@ -47,6 +49,20 @@ describe("Player", () => {
     expect(addFoul(expectedPlayer)).toEqual({
       ...expectedPlayer,
       fouls: expectedPlayer.fouls + 1,
+    });
+  });
+
+  it("should add an offensive rebound to a player", () => {
+    expect(addOffensiveRebound(expectedPlayer)).toEqual({
+      ...expectedPlayer,
+      offensiveRebounds: expectedPlayer.offensiveRebounds + 1,
+    });
+  });
+
+  it("should add a defensive rebound to a player", () => {
+    expect(addDefensiveRebound(expectedPlayer)).toEqual({
+      ...expectedPlayer,
+      defensiveRebounds: expectedPlayer.defensiveRebounds + 1,
     });
   });
 });

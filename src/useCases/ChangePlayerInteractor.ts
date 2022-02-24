@@ -5,6 +5,8 @@ export interface ChangePlayerInteractor {
   addThreePoints(): void;
   addPass(): void;
   addFoul(): void;
+  addOffensiveRebound(): void;
+  addDefensiveRebound(): void;
 }
 
 export function createChangePlayerInteractor(
@@ -26,5 +28,13 @@ export function createChangePlayerInteractor(
     addFoul() {
       playerGateway.addFoul();
     },
+
+    addOffensiveRebound() {
+      playerGateway.addOffensiveRebound();
+    },
+    
+    addDefensiveRebound() {
+      playerGateway.addDefensiveRebound();
+    }
   };
 }

@@ -6,10 +6,14 @@ const PlayerItem = ({
   points,
   passes,
   fouls,
+  defensiveRebounds,
+  offensiveRebounds,
   addTwoPoints,
   addThreePoints,
   addPass,
   addFoul,
+  addDefensiveRebound,
+  addOffensiveRebound
 }: PlayerItemProps) => {
   return (
     <PlayerItemContainer>
@@ -20,6 +24,8 @@ const PlayerItem = ({
       <div>{passes}</div>
       
       <div>{fouls}</div>
+      
+      <div>{defensiveRebounds} / {offensiveRebounds}</div>
 
       <div>
         <button onClick={addTwoPoints}>2 points</button>
@@ -35,6 +41,14 @@ const PlayerItem = ({
 
       <div>
         <button onClick={addFoul}>Fouls</button>
+      </div>
+
+      <div>
+        <button onClick={addDefensiveRebound}>Def. Rebound</button>
+      </div>
+
+      <div>
+        <button onClick={addOffensiveRebound}>Off. Rebound</button>
       </div>
     </PlayerItemContainer>
   );

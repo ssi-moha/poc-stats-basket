@@ -16,28 +16,54 @@ type FoulAction = {
   type: PlayerActionTypes.FOUL;
 };
 
-export type PlayerActions = TwoPointsAction | ThreePointsAction | PassAction | FoulAction;
+type OffensiveReboundAction = {
+  type: PlayerActionTypes.OFFENSIVE_REBOUND;
+};
+
+type DefensiveReboundAction = {
+  type: PlayerActionTypes.DEFENSIVE_REBOUND;
+};
+
+export type PlayerActions =
+  | TwoPointsAction
+  | ThreePointsAction
+  | PassAction
+  | FoulAction
+  | OffensiveReboundAction
+  | DefensiveReboundAction;
 
 export function addTwoPoints(): TwoPointsAction {
-    return {
-        type: PlayerActionTypes.TWO_POINTS
-    }
+  return {
+    type: PlayerActionTypes.TWO_POINTS,
+  };
 }
 
 export function addThreePoints(): ThreePointsAction {
-    return {
-        type: PlayerActionTypes.THREE_POINTS
-    }
+  return {
+    type: PlayerActionTypes.THREE_POINTS,
+  };
 }
 
 export function addPass(): PassAction {
   return {
-      type: PlayerActionTypes.PASS
-  }
+    type: PlayerActionTypes.PASS,
+  };
 }
 
 export function addFoul(): FoulAction {
   return {
-      type: PlayerActionTypes.FOUL
-  }
+    type: PlayerActionTypes.FOUL,
+  };
+}
+
+export function addOffensiveRebound(): OffensiveReboundAction {
+  return {
+    type: PlayerActionTypes.OFFENSIVE_REBOUND,
+  };
+}
+
+export function addDefensiveRebound(): DefensiveReboundAction {
+  return {
+    type: PlayerActionTypes.DEFENSIVE_REBOUND,
+  };
 }

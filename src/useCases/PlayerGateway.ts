@@ -3,4 +3,6 @@ export interface PlayerGateway {
     addThreePoints(): void;
     addPass(): void;
     addFoul(): void;
+    addOffensiveRebound(): void;
+    addDefensiveRebound(): void;
 }

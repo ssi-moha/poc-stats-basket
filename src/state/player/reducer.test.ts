@@ -36,4 +36,17 @@ describe("Player - Reducer", () => {
       playerReducer(expectedPlayer, { type: PlayerActionTypes.FOUL })
     ).toEqual({ ...expectedPlayer, fouls: expectedPlayer.fouls + 1 });
   });
+
+  it("should return a player state with one more offensive rebound", () => {
+    expect(
+      playerReducer(expectedPlayer, { type: PlayerActionTypes.OFFENSIVE_REBOUND })
+    ).toEqual({ ...expectedPlayer, offensiveRebounds: expectedPlayer.offensiveRebounds + 1 });
+  });
+
+
+  it("should return a player state with one more defensive rebound", () => {
+    expect(
+      playerReducer(expectedPlayer, { type: PlayerActionTypes.DEFENSIVE_REBOUND })
+    ).toEqual({ ...expectedPlayer, defensiveRebounds: expectedPlayer.defensiveRebounds + 1 });
+  });
 });

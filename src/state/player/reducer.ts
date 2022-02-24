@@ -1,5 +1,7 @@
 import {
+  addDefensiveRebound,
   addFoul,
+  addOffensiveRebound,
   addPass,
   addThreePoints,
   addTwoPoints,
@@ -26,6 +28,10 @@ export function playerReducer(
       return addPass(state);
     case PlayerActionTypes.FOUL:
       return addFoul(state);
+    case PlayerActionTypes.OFFENSIVE_REBOUND:
+      return addOffensiveRebound(state);
+    case PlayerActionTypes.DEFENSIVE_REBOUND:
+      return addDefensiveRebound(state);
     default:
       return state;
   }

@@ -5,4 +5,6 @@ export type PlayerItemProps = Player & {
   addThreePoints(): void;
   addPass(): void;
   addFoul(): void;
+  addOffensiveRebound(): void;
+  addDefensiveRebound(): void;
 };
