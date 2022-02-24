@@ -1,3 +1,6 @@
+import { useAppDispatch } from "../../../app/hooks";
+import { createReduxPlayerGateway } from "../../../state/player/ReduxPlayerGateway";
+import { createChangePlayerInteractor } from "../../../useCases/ChangePlayerInteractor";
 import { PlayerItemContainer } from "./style";
 import type { PlayerItemProps } from "./types";
 
@@ -8,13 +11,20 @@ const PlayerItem = ({
   fouls,
   defensiveRebounds,
   offensiveRebounds,
-  addTwoPoints,
-  addThreePoints,
-  addPass,
-  addFoul,
-  addDefensiveRebound,
-  addOffensiveRebound
+  index,
 }: PlayerItemProps) => {
+  const dispatch = useAppDispatch();
+  const playerGateway = createReduxPlayerGateway(dispatch);
+
+  const {
+    addDefensiveRebound,
+    addFoul,
+    addOffensiveRebound,
+    addPass,
+    addThreePoints,
+    addTwoPoints,
+  } = createChangePlayerInteractor(playerGateway, index);
+
   return (
     <PlayerItemContainer>
       <div>{name}</div>
@@ -22,10 +32,12 @@ const PlayerItem = ({
       <div>{points}</div>
 
       <div>{passes}</div>
-      
+
       <div>{fouls}</div>
-      
-      <div>{defensiveRebounds} / {offensiveRebounds}</div>
+
+      <div>
+        {defensiveRebounds} / {offensiveRebounds}
+      </div>
 
       <div>
         <button onClick={addTwoPoints}>2 points</button>

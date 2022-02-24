@@ -1,8 +1,8 @@
 export interface PlayerGateway {
-    addTwoPoints(): void;
-    addThreePoints(): void;
-    addPass(): void;
-    addFoul(): void;
-    addOffensiveRebound(): void;
-    addDefensiveRebound(): void;
+    addTwoPoints(index: number): void;
+    addThreePoints(index: number): void;
+    addPass(index: number): void;
+    addFoul(index: number): void;
+    addOffensiveRebound(index: number): void;
+    addDefensiveRebound(index: number): void;
 }

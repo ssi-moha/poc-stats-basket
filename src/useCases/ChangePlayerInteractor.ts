@@ -10,31 +10,34 @@ export interface ChangePlayerInteractor {
 }
 
 export function createChangePlayerInteractor(
-  playerGateway: PlayerGateway
+  playerGateway: PlayerGateway,
+  index: number
 ): ChangePlayerInteractor {
+  const playerIndex = index;
+
   return {
     addTwoPoints() {
-      playerGateway.addTwoPoints();
+      playerGateway.addTwoPoints(playerIndex);
     },
 
     addThreePoints() {
-      playerGateway.addThreePoints();
+      playerGateway.addThreePoints(playerIndex);
     },
 
     addPass() {
-      playerGateway.addPass();
+      playerGateway.addPass(playerIndex);
     },
 
     addFoul() {
-      playerGateway.addFoul();
+      playerGateway.addFoul(playerIndex);
     },
 
     addOffensiveRebound() {
-      playerGateway.addOffensiveRebound();
+      playerGateway.addOffensiveRebound(playerIndex);
     },
-    
+
     addDefensiveRebound() {
-      playerGateway.addDefensiveRebound();
-    }
+      playerGateway.addDefensiveRebound(playerIndex);
+    },
   };
 }

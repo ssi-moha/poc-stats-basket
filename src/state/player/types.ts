@@ -1,8 +1,8 @@
 export enum PlayerActionTypes {
-    TWO_POINTS = "TWO_POINTS",
-    THREE_POINTS = "THREE_POINTS",
-    PASS = "PASS",
-    FOUL = "FOUL",
-    OFFENSIVE_REBOUND = "OFFENSIVE_REBOUND",
-    DEFENSIVE_REBOUND = "DEFENSIVE_REBOUND",
+    TWO_POINTS = "player/TWO_POINTS",
+    THREE_POINTS = "player/THREE_POINTS",
+    PASS = "player/PASS",
+    FOUL = "player/FOUL",
+    OFFENSIVE_REBOUND = "player/OFFENSIVE_REBOUND",
+    DEFENSIVE_REBOUND = "player/DEFENSIVE_REBOUND",
 }

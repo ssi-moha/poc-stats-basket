@@ -1,11 +1,30 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { playerReducer } from '../state/player/reducer';
+import {
+  ThunkAction,
+  Action,
+  createStore,
+  combineReducers,
+  compose,
+} from "@reduxjs/toolkit";
+import { playerReducer } from "../state/player/reducer";
+import { teamReducer } from "../state/team/reducer";
 
-export const store = configureStore({
-  reducer: {
-    player: playerReducer
+const composeEnhancers =
+// @ts-ignore
+typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+// @ts-ignore
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
+
+const enhancer = composeEnhancers();
+
+const rootReducer = combineReducers(
+  {
+    player: playerReducer,
+    team: teamReducer,
   },
-});
+);
+
+export const store = createStore(rootReducer, enhancer);
 
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;

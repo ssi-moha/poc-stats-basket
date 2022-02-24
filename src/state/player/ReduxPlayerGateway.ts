@@ -4,28 +4,28 @@ import { addDefensiveRebound, addFoul, addOffensiveRebound, addPass, addThreePoi
 
 export function createReduxPlayerGateway(dispatch: AppDispatch): PlayerGateway {
   return {
-    addTwoPoints() {
-      dispatch(addTwoPoints());
+    addTwoPoints(index: number) {
+      dispatch(addTwoPoints(index));
     },
 
-    addThreePoints() {
-      dispatch(addThreePoints());
+    addThreePoints(index: number) {
+      dispatch(addThreePoints(index));
     },
 
-    addPass() {
-      dispatch(addPass());
+    addPass(index: number) {
+      dispatch(addPass(index));
     },
 
-    addFoul() {
-      dispatch(addFoul());
+    addFoul(index: number) {
+      dispatch(addFoul(index));
     },
 
-    addOffensiveRebound() {
-      dispatch(addOffensiveRebound());
+    addOffensiveRebound(index: number) {
+      dispatch(addOffensiveRebound(index));
     },
     
-    addDefensiveRebound() {
-      dispatch(addDefensiveRebound());
+    addDefensiveRebound(index: number) {
+      dispatch(addDefensiveRebound(index));
     }
   };
 }

@@ -8,7 +8,7 @@ import {
   createPlayer,
 } from "../../entities/Player/Player";
 import type { Player } from "../../entities/Player/Player";
-import { PlayerActions } from "./actions";
+import type { PlayerActions } from "./actions";
 import { PlayerActionTypes } from "./types";
 
 export type PlayerState = Player;

@@ -1,25 +1,9 @@
-import { useAppSelector } from "./app/hooks";
-import PlayerItem from "./ui/components/PlayerItem/PlayerItem";
-import type { ChangePlayerInteractor } from "./useCases/ChangePlayerInteractor";
+import PlayerList from "./ui/components/PlayerList/PlayerList";
 
-function App({
-  changePlayerCounterInteractor,
-}: {
-  changePlayerCounterInteractor: ChangePlayerInteractor;
-}) {
-  const player = useAppSelector((state) => state.player);
-
+function App() {
   return (
     <div>
-      <PlayerItem
-        {...player}
-        addTwoPoints={changePlayerCounterInteractor.addTwoPoints}
-        addThreePoints={changePlayerCounterInteractor.addThreePoints}
-        addPass={changePlayerCounterInteractor.addPass}
-        addFoul={changePlayerCounterInteractor.addFoul}
-        addDefensiveRebound={changePlayerCounterInteractor.addDefensiveRebound}
-        addOffensiveRebound={changePlayerCounterInteractor.addOffensiveRebound}
-      />
+      <PlayerList />
     </div>
   );
 }
