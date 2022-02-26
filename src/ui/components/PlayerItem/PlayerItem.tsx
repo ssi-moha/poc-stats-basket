@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../../app/hooks";
 import { createReduxPlayerGateway } from "../../../state/player/ReduxPlayerGateway";
-import { createChangePlayerInteractor } from "../../../useCases/ChangePlayerInteractor";
+import { createChangePlayerInteractor } from "../../../useCases/Player/ChangePlayerInteractor";
 import { PlayerItemContainer } from "./style";
 import type { PlayerItemProps } from "./types";
 

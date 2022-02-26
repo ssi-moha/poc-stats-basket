@@ -1,5 +1,5 @@
 import type { AppDispatch } from "../../app/store";
-import type { TeamGateway } from "../../useCases/TeamGateway";
+import type { TeamGateway } from "../../useCases/Team/TeamGateway";
 import { addPlayer } from "./actions";
 
 export function createReduxTeamGateway(dispatch: AppDispatch): TeamGateway {

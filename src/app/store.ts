@@ -5,6 +5,7 @@ import {
   combineReducers,
   compose,
 } from "@reduxjs/toolkit";
+import { gameReducer } from "../state/game/reducer";
 import { teamReducer } from "../state/team/reducer";
 
 const composeEnhancers =
@@ -17,6 +18,7 @@ const composeEnhancers =
 const enhancer = composeEnhancers();
 
 const rootReducer = combineReducers({
+  game: gameReducer,
   team: teamReducer,
 });
 

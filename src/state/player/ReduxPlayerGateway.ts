@@ -1,5 +1,5 @@
 import type { AppDispatch } from "../../app/store";
-import type { PlayerGateway } from "../../useCases/PlayerGateway";
+import type { PlayerGateway } from "../../useCases/Player/PlayerGateway";
 import { addDefensiveRebound, addFoul, addOffensiveRebound, addPass, addThreePoints, addTwoPoints } from "./actions";
 
 export function createReduxPlayerGateway(dispatch: AppDispatch): PlayerGateway {
