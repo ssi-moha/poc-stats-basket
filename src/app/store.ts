@@ -5,24 +5,20 @@ import {
   combineReducers,
   compose,
 } from "@reduxjs/toolkit";
-import { playerReducer } from "../state/player/reducer";
 import { teamReducer } from "../state/team/reducer";
 
 const composeEnhancers =
-// @ts-ignore
-typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-// @ts-ignore
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+  // @ts-ignore
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? // @ts-ignore
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
 const enhancer = composeEnhancers();
 
-const rootReducer = combineReducers(
-  {
-    player: playerReducer,
-    team: teamReducer,
-  },
-);
+const rootReducer = combineReducers({
+  team: teamReducer,
+});
 
 export const store = createStore(rootReducer, enhancer);
 
