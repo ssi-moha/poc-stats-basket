@@ -12,7 +12,7 @@ describe("Team - Reducer", () => {
       name: "Lebron James",
       number: 0,
       offensiveRebounds: 0,
-      passes: 0,
+      assists: 0,
       points: 0,
       defensiveRebounds: 0,
       fouls: 0,

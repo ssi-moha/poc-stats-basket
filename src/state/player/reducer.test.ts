@@ -10,7 +10,7 @@ describe("Player - Reducer", () => {
     fouls: 0,
     number: 0,
     offensiveRebounds: 0,
-    passes: 0,
+    assists: 0,
   };
 
   it("should return a player state with two more points", () => {
@@ -34,7 +34,7 @@ describe("Player - Reducer", () => {
   it("should return a player state with one more passes", () => {
     expect(
       playerReducer(expectedPlayer, { type: PlayerActionTypes.PASS, index: 0 })
-    ).toEqual({ ...expectedPlayer, passes: expectedPlayer.passes + 1 });
+    ).toEqual({ ...expectedPlayer, assists: expectedPlayer.assists + 1 });
   });
 
   it("should return a player state with one more foul", () => {

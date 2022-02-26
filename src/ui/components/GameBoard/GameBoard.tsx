@@ -8,11 +8,11 @@ import { GameBoardProps } from "./types";
 const GameBoard = ({}: GameBoardProps) => {
   const dispatch = useDispatch();
   const gameGateway = createReduxGameGateway(dispatch);
-  const { start, finish } = createChangeGameInteractor(gameGateway);
+  const { start: startGame, finish: finishGame } = createChangeGameInteractor(gameGateway);
   const { isStarted, isFinished } = useAppSelector((state) => state.game);
 
   if (isStarted) {
-    return <PlayerList finishGame={finish} />;
+    return <PlayerList finishGame={finishGame} />;
   }
 
   if (isFinished) {
@@ -22,7 +22,7 @@ const GameBoard = ({}: GameBoardProps) => {
   return (
     <div>
       <h1>Game is not started yet</h1>
-      <button onClick={start}>Start game</button>
+      <button onClick={startGame}>Start game</button>
     </div>
   );
 };

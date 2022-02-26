@@ -17,7 +17,7 @@ describe("Player", () => {
     fouls: 0,
     number: 0,
     offensiveRebounds: 0,
-    passes: 0,
+    assists: 0,
   };
 
   it("it should return a player", () => {
@@ -41,7 +41,7 @@ describe("Player", () => {
   it("should add a pass to a player", () => {
     expect(addPass(expectedPlayer)).toEqual({
       ...expectedPlayer,
-      passes: expectedPlayer.passes + 1,
+      assists: expectedPlayer.assists + 1,
     });
   });
 

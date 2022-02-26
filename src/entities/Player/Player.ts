@@ -2,10 +2,11 @@ export type Player = {
   name?: string;
   number: number;
   points: number;
-  passes: number;
+  assists: number;
   fouls: number;
   offensiveRebounds: number;
   defensiveRebounds: number;
+  
 };
 
 export type Statistics = Omit<Player, "name">;
@@ -13,7 +14,7 @@ export type Statistics = Omit<Player, "name">;
 const defaultPlayerStats: Statistics = {
   number: 0,
   points: 0,
-  passes: 0,
+  assists: 0,
   fouls: 0,
   defensiveRebounds: 0,
   offensiveRebounds: 0,
@@ -38,7 +39,7 @@ export function addThreePoints(player: Player): Player {
 }
 
 export function addPass(player: Player): Player {
-  return { ...player, passes: player.passes + 1 };
+  return { ...player, assists: player.assists + 1 };
 }
 
 export function addFoul(player: Player): Player {

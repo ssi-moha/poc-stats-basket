@@ -7,7 +7,7 @@ import type { PlayerItemProps } from "./types";
 const PlayerItem = ({
   name,
   points,
-  passes,
+  assists: passes,
   fouls,
   defensiveRebounds,
   offensiveRebounds,
