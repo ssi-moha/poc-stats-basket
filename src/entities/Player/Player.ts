@@ -6,7 +6,6 @@ export type Player = {
   fouls: number;
   offensiveRebounds: number;
   defensiveRebounds: number;
-  
 };
 
 export type Statistics = Omit<Player, "name">;

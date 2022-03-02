@@ -1,7 +1,6 @@
 import { createPlayer } from "../../entities/Player/Player";
 
-import get from "lodash/get";
-import type { Team } from "../../entities/Team/Team";
+import { addPlayer, replacePlayer, Team } from "../../entities/Team/Team";
 import { playerReducer } from "../player/reducer";
 import type { TeamActions } from "./actions";
 import { TeamActionTypes } from "./types";
@@ -10,7 +9,11 @@ import { PlayerActions } from "../player/actions";
 
 export type TeamState = Team;
 
-const initialState: TeamState = { name: "Los Angeles Lakers", players: [] };
+const initialState: TeamState = {
+  name: "Los Angeles Lakers",
+  players: [],
+  subs: [],
+};
 
 export function teamReducer(
   state: TeamState = initialState,
@@ -19,19 +22,23 @@ export function teamReducer(
   if (action.type.startsWith("player/")) {
     return {
       ...state,
-      players: applyReducerToPlayer(playerReducer, state.players, action as PlayerActions),
+      players: applyReducerToPlayer(
+        playerReducer,
+        state.players,
+        action as PlayerActions
+      ),
     };
   }
 
   switch (action.type) {
     case TeamActionTypes.ADD_PLAYER:
-      return {
-        ...state,
-        players: [
-          ...state.players,
-          createPlayer(get(action, "payload.name", "TEST")),
-        ],
-      };
+      return addPlayer(state, createPlayer(action.payload.name));
+    case TeamActionTypes.REPLACE_PLAYER:
+      return replacePlayer(
+        state,
+        action.payload.outcomingPlayer,
+        action.payload.incomingPlayer
+      );
     default:
       return state;
   }

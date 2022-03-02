@@ -1,10 +1,14 @@
-import { addPlayer } from "./actions";
+import { createPlayer } from "../../entities/Player/Player";
+import { Team } from "../../entities/Team/Team";
+import { generateRandomPlayerName } from "../../utils";
+import { addPlayer, replacePlayer } from "./actions";
 import { teamReducer } from "./reducer";
 
 describe("Team - Reducer", () => {
-  const team = {
+  const team: Team = {
     name: "Los Angeles Lakers",
     players: [],
+    subs: [],
   };
 
   it("should return a team state with a new player", () => {
@@ -22,9 +26,48 @@ describe("Team - Reducer", () => {
       ...team,
       players: [player],
     };
-    
+
+    expect(teamReducer(team, addPlayer(player.name))).toEqual(expectedTeam);
+  });
+
+  it("should return a team state with a new sub", () => {
+    const player = createPlayer("Lebron James");
+
+    const activePlayers = [player, player, player, player, player];
+
+    const expectedTeam = {
+      ...team,
+      players: activePlayers,
+      subs: [player],
+    };
+
     expect(
-      teamReducer(team, addPlayer(player.name))
+      teamReducer(
+        { ...team, players: activePlayers },
+        addPlayer(player.name || "")
+      )
+    ).toEqual(expectedTeam);
+  });
+
+  it("should return a team state with a player replaced by another", () => {
+    const sub = createPlayer("Dwyane Wade");
+
+    const randomNames = Array.from(Array(5)).map(() =>
+      generateRandomPlayerName()
+    );
+
+    const activePlayers = randomNames.map((name) => createPlayer(name));
+    const expectedTeam = {
+      ...team,
+      players: [sub, ...activePlayers.slice(1)],
+      subs: [activePlayers[0]],
+    };
+
+    expect(
+      teamReducer(
+        { ...team, players: activePlayers, subs: [sub] },
+        replacePlayer(activePlayers[0], sub)
+      )
     ).toEqual(expectedTeam);
   });
 });
