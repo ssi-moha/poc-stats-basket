@@ -1,5 +1,5 @@
 import { createPlayer } from "../Player/Player";
-import { addPlayer, replacePlayer, Team } from "../Team/Team";
+import { addPlayer, changeIsSubstituting, replacePlayer, Team } from "../Team/Team";
 import type { Player } from "../Player/Player";
 import { createTeam } from "./Team";
 import { generateRandomPlayerName } from "../../utils";
@@ -9,6 +9,7 @@ describe("Team", () => {
     name: "Miami Heat",
     players: [],
     subs: [],
+    isSubstituting: false,
   };
 
   it("it should return a team", () => {
@@ -30,7 +31,9 @@ describe("Team", () => {
       createPlayer("Lebron James")
     );
 
-    expect(addPlayer({ ...expectedTeam, players }, createPlayer("Lebron James"))).toEqual({
+    expect(
+      addPlayer({ ...expectedTeam, players }, createPlayer("Lebron James"))
+    ).toEqual({
       ...expectedTeam,
       players: [newPlayer, newPlayer, newPlayer, newPlayer, newPlayer],
       subs: [newPlayer],
@@ -41,16 +44,26 @@ describe("Team", () => {
     const newSub: Player = createPlayer("Dwyane Wade");
     const randomNames = Array.from(Array(5)).map(() =>
       generateRandomPlayerName()
-    )
-
-    const players = randomNames.map((name) =>
-      createPlayer(name)
     );
 
-    expect(replacePlayer({ ...expectedTeam, players, subs: [newSub] }, players[0], newSub)).toEqual({
+    const players = randomNames.map((name) => createPlayer(name));
+
+    expect(
+      replacePlayer(
+        { ...expectedTeam, players, subs: [newSub] },
+        players[0],
+        newSub
+      )
+    ).toEqual({
       ...expectedTeam,
       players: [newSub, ...players.slice(1)],
       subs: [players[0]],
     });
-  })
+  });
+
+  it("should set isSubstituting to true", () => {
+    const team = createTeam("Miami Heat");
+
+    expect(changeIsSubstituting(team).isSubstituting).toBe(true);
+  });
 });

@@ -12,7 +12,15 @@ type ReplacePlayerAction = {
   payload: { incomingPlayer: Player; outcomingPlayer: Player };
 };
 
-export type TeamActions = AddPlayerAction | ReplacePlayerAction | PlayerActions;
+type ChangeIsSubstitutingAction = {
+  type: TeamActionTypes.CHANGE_IS_SUBSTITUTING;
+};
+
+export type TeamActions =
+  | AddPlayerAction
+  | ReplacePlayerAction
+  | ChangeIsSubstitutingAction
+  | PlayerActions;
 
 export function addPlayer(name: string): AddPlayerAction {
   return {
@@ -28,5 +36,11 @@ export function replacePlayer(
   return {
     type: TeamActionTypes.REPLACE_PLAYER,
     payload: { incomingPlayer, outcomingPlayer },
+  };
+}
+
+export function changeIsSubstituting(): ChangeIsSubstitutingAction {
+  return {
+    type: TeamActionTypes.CHANGE_IS_SUBSTITUTING,
   };
 }

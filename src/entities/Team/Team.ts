@@ -1,9 +1,11 @@
+import { TeamState } from "../../state/team/reducer";
 import { Player } from "../Player/Player";
 
 export type Team = {
   name: string;
   players: Player[];
   subs: Player[];
+  isSubstituting: boolean;
 };
 
 export function createTeam(name: string): Team {
@@ -11,6 +13,7 @@ export function createTeam(name: string): Team {
     name,
     players: [],
     subs: [],
+    isSubstituting: false,
   };
 }
 
@@ -42,4 +45,12 @@ export function replacePlayer(
   ];
 
   return { ...team, subs: [...subs, outcomingPlayer], players };
+}
+
+// Function that change isSubstituting
+export function changeIsSubstituting(team: TeamState): Team {
+  return {
+    ...team,
+    isSubstituting: !team.isSubstituting,
+  };
 }

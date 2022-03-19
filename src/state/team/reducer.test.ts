@@ -1,7 +1,7 @@
 import { createPlayer } from "../../entities/Player/Player";
 import { Team } from "../../entities/Team/Team";
 import { generateRandomPlayerName } from "../../utils";
-import { addPlayer, replacePlayer } from "./actions";
+import { addPlayer, changeIsSubstituting, replacePlayer } from "./actions";
 import { teamReducer } from "./reducer";
 
 describe("Team - Reducer", () => {
@@ -9,6 +9,7 @@ describe("Team - Reducer", () => {
     name: "Los Angeles Lakers",
     players: [],
     subs: [],
+    isSubstituting: false,
   };
 
   it("should return a team state with a new player", () => {
@@ -69,5 +70,20 @@ describe("Team - Reducer", () => {
         replacePlayer(activePlayers[0], sub)
       )
     ).toEqual(expectedTeam);
+  });
+
+  it("should return a team state with isSubstituting changed", () => {
+    const expectedTeam = {
+      ...team,
+      isSubstituting: true,
+    };
+
+    const isSubstitutingTeam = teamReducer(team, changeIsSubstituting());
+
+    expect(isSubstitutingTeam).toEqual(expectedTeam);
+    expect(teamReducer(isSubstitutingTeam, changeIsSubstituting())).toEqual({
+      ...expectedTeam,
+      isSubstituting: false,
+    });
   });
 });

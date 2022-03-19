@@ -1,6 +1,6 @@
 import { createPlayer } from "../../entities/Player/Player";
 
-import { addPlayer, replacePlayer, Team } from "../../entities/Team/Team";
+import { addPlayer, changeIsSubstituting, replacePlayer, Team } from "../../entities/Team/Team";
 import { playerReducer } from "../player/reducer";
 import type { TeamActions } from "./actions";
 import { TeamActionTypes } from "./types";
@@ -13,6 +13,7 @@ const initialState: TeamState = {
   name: "Los Angeles Lakers",
   players: [],
   subs: [],
+  isSubstituting: false,
 };
 
 export function teamReducer(
@@ -39,6 +40,8 @@ export function teamReducer(
         action.payload.outcomingPlayer,
         action.payload.incomingPlayer
       );
+    case TeamActionTypes.CHANGE_IS_SUBSTITUTING:
+      return changeIsSubstituting(state);
     default:
       return state;
   }
